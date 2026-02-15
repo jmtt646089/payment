@@ -34,7 +34,7 @@
 	},
 	"private": true,
 	"scripts": {
-		"build": "tsc -b && vite build",
+		"build": "npm i onlinepayments-sdk-nodejs && tsc -b && vite build",
 		"cf-typegen": "wrangler types",
 		"check": "tsc && vite build && wrangler deploy --dry-run",
 		"deploy": "wrangler deploy",
