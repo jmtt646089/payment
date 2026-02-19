@@ -1,6 +1,7 @@
 {
 	"name": "payment",
 	"description": "A template for building a React application with Vite, Hono, and Cloudflare Workers",
+	"type": "module",
 	"cloudflare": {
 		"label": "Vite React Template",
 		"products": [
@@ -14,7 +15,8 @@
 	"dependencies": {
 		"hono": "4.11.1",
 		"react": "19.2.1",
-		"react-dom": "19.2.1"
+		"react-dom": "19.2.1",
+		"onlinepayments-sdk-nodejs": "^latest_version"
 	},
 	"devDependencies": {
 		"@cloudflare/vite-plugin": "1.15.3",
