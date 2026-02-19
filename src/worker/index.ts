@@ -5,6 +5,7 @@ import onlinePaymentsSdk from 'onlinepayments-sdk-nodejs';
 const apiEndpoint = 'payment.preprod.direct.worldline-solutions.com';
 const merchantId = 'JMI';
 const wlApiKey = import.meta.env.WL_API_KEY;         // get it from .env
+console.log(wlApiKey);
 //const wlSecret = import.meta.env.WL_SECRET;
 
 const checkout = async function(c: Context) {
