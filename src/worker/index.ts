@@ -20,7 +20,7 @@ const checkout = function(c) {
         enableLogging: true, 
         //logger: logger, 
         apiKeyId: wlApiKey,
-        secretApiKey: wlSecret
+        secretApiKey: import.meta.env.WL_SECRET
     });
 
     // use worldline sdk
