@@ -66,7 +66,7 @@ const checkout = async function(c: Context) {
         {}
     );
 
-    if sdkResponse
+    //if sdkResponse
     console.log("sdkResponse ------------------------------------------");
     console.log(sdkResponse);
     
