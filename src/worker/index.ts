@@ -66,6 +66,7 @@ const checkout = async function(c: Context) {
         {}
     );
 
+    if sdkResponse
     console.log("sdkResponse ------------------------------------------");
     console.log(sdkResponse);
     
@@ -85,8 +86,8 @@ const checkout = async function(c: Context) {
     //return c.json({ redirectUrl: "https://www.google.com" }); // test ok
 
     console.log("redirectUrl ------------------------------------------");
-    console.log(sdkResponse?.redirectUrl);
-    return c.json({ redirectUrl: sdkResponse?.redirectUrl });
+    console.log(sdkResponse.body?.redirectUrl);
+    return c.json({ redirectUrl: sdkResponse.body?.redirectUrl });
     
         
 };
