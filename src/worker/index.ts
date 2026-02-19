@@ -1,13 +1,13 @@
 import { Hono } from "hono";
 const app = new Hono<{ Bindings: Env }>();
-const onlinePaymentsSdk = require('onlinepayments-sdk-nodejs');
+import onlinePaymentsSdk from 'onlinepayments-sdk-nodejs';
 
 const apiEndpoint = 'payment.preprod.direct.worldline-solutions.com';
 const merchantId = 'JMI';
 const wlApiKey = import.meta.env.WL_API_KEY;         // get it from .env
-const wlSecret = import.meta.env.WL_SECRET;
+//const wlSecret = import.meta.env.WL_SECRET;
 
-const checkout = function(c) {
+const checkout = async function(c) {
 
     // get order information from front end page Button OnClick event handler function
 
@@ -51,7 +51,7 @@ const checkout = function(c) {
     
     const partialRedirectUrl = sdkResponse.partialRedirectUrl;
     const baseUrl = "https://payment.";
-    reUrl = baseUrl + partialRedirectUrl;
+    const reUrl = baseUrl + partialRedirectUrl;
     console.log("reUrl --------------------------------");
     console.log(reUrl);
     
