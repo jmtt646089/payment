@@ -48,14 +48,16 @@ const checkout = async function(c: Context) {
     
         {}
     );
+
+    console.log(sdkResponse);
     
-    const partialRedirectUrl = sdkResponse.response.partialRedirectUrl;
+    //const partialRedirectUrl = sdkResponse.response.partialRedirectUrl;
     // error TS2339: Property 'partialRedirectUrl' does not exist on type 'SdkResponse<CreateHostedCheckoutResponse, ErrorResponse>'.
     
-    const baseUrl = "https://payment.";
-    const reUrl = baseUrl + partialRedirectUrl;
+    //const baseUrl = "https://payment.";
+    //const reUrl = baseUrl + partialRedirectUrl;
     console.log("reUrl --------------------------------");
-    console.log(reUrl);
+    //console.log(reUrl);
     
     // return reUrl to front end code by the mean of response
     // then front end code parse the response, get the reUrl, then call window.location.href = "https://www.example.com/new-page";
