@@ -62,7 +62,8 @@ const checkout = async function(c: Context) {
     // return reUrl to front end code by the mean of response
     // then front end code parse the response, get the reUrl, then call window.location.href = "https://www.example.com/new-page";
     
-    return c.json({ redirectUrl: reUrl });
+    //return c.json({ redirectUrl: reUrl });
+    return c.json({ redirectUrl: "hahaha.com" });
         
 };
 
