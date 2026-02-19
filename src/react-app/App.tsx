@@ -58,7 +58,8 @@ function App() {
 					onClick={() => {
 						fetch("/api/checkout")
 							.then((res) => res.json() as Promise<{ redirectUrl: string }>)
-							.then((data) => window.location.href = data.redirectUrl);
+							.then((data) => setName(data.redirectUrl));
+							//.then((data) => window.location.href = data.redirectUrl);
 					}}
 					aria-label="check out"
 				>
