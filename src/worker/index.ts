@@ -54,9 +54,9 @@ const checkout = async function(c: Context) {
                 "paymentProductFilters": {
                     "restrictTo": {
                         "products": [
-                              "302",
-                              "430",
-                              "1"
+                              302,
+                              430,
+                              1
                          ]
                     }
                 }
