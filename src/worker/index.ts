@@ -1,15 +1,15 @@
 import { Hono, Context } from "hono";
-import { env } from 'cloudflare:workers';
+//import { env } from 'cloudflare:workers';
 
 const app = new Hono<{ Bindings: Env }>();
 import onlinePaymentsSdk from 'onlinepayments-sdk-nodejs';
 
 const apiEndpoint = 'payment.preprod.direct.worldline-solutions.com';
 const merchantId = 'JMI';
-const wlApiKey = env.WL_API_KEY;         // get it from .env
-console.log(wlApiKey);
+//const wlApiKey = env.WL_API_KEY;         // get it from .env
+//console.log(wlApiKey);
 // const wlSecret = import.meta.env.WL_SECRET; // this is for build-time
-const wlSecret = env.WL_SECRET;
+//const wlSecret = env.WL_SECRET;
 
 
 const checkout = async function(c: Context) {
@@ -24,8 +24,8 @@ const checkout = async function(c: Context) {
         port: 443, 
         enableLogging: true, 
         //logger: logger, 
-        apiKeyId: wlApiKey,
-        secretApiKey: wlSecret
+        apiKeyId: c.env.WL_API_KEY,
+        secretApiKey: c.env.WL_SECRET
     });
 
     // use worldline sdk
