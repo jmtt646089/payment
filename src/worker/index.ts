@@ -1,4 +1,4 @@
-import { Hono } from "hono";
+import { Hono, Context } from "hono";
 const app = new Hono<{ Bindings: Env }>();
 import onlinePaymentsSdk from 'onlinepayments-sdk-nodejs';
 
@@ -49,7 +49,9 @@ const checkout = async function(c: Context) {
         {}
     );
     
-    const partialRedirectUrl = sdkResponse.partialRedirectUrl;
+    const partialRedirectUrl = sdkResponse.response.partialRedirectUrl;
+    // error TS2339: Property 'partialRedirectUrl' does not exist on type 'SdkResponse<CreateHostedCheckoutResponse, ErrorResponse>'.
+    
     const baseUrl = "https://payment.";
     const reUrl = baseUrl + partialRedirectUrl;
     console.log("reUrl --------------------------------");
