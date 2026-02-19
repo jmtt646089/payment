@@ -4,10 +4,10 @@ const onlinePaymentsSdk = require('onlinepayments-sdk-nodejs');
 
 const apiEndpoint = 'payment.preprod.direct.worldline-solutions.com';
 const merchantId = 'JMI';
-const wlApiKey = '';         // get it from .env
-const wlSecret = '';
+const wlApiKey = import.meta.env.WL_API_KEY;         // get it from .env
+const wlSecret = import.meta.env.WL_SECRET;
 
-const checkout = function(name) {
+const checkout = function(c) {
 
     // get order information from front end page Button OnClick event handler function
 
@@ -52,11 +52,13 @@ const checkout = function(name) {
     const partialRedirectUrl = sdkResponse.partialRedirectUrl;
     const baseUrl = "https://payment.";
     reUrl = baseUrl + partialRedirectUrl;
+    console.log("reUrl --------------------------------");
+    console.log(reUrl);
     
     // return reUrl to front end code by the mean of response
     // then front end code parse the response, get the reUrl, then call window.location.href = "https://www.example.com/new-page";
     
-    return reUrl;
+    return c.json({ redirectUrl: reUrl });
         
 };
 
@@ -64,7 +66,7 @@ const checkout = function(name) {
 
 app.get("/api/", (c) => c.json({ name: "Cloudflare" }));
 
-app.get("/api/checkout", (c) => checkout);
+app.get("/api/checkout", (c) => checkout(c));
 
 
 
