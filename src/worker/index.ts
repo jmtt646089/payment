@@ -37,27 +37,18 @@ const checkout = async function(c: Context) {
         {
             order: {
                 amountOfMoney: {
-                    currencyCode: "EUR",
-                    amount: 100,                 // should be from front end form request information
+                    currencyCode: "EUR",   // merchant 测试账户 Dashboard 默认使用EUR货币单位
+                    amount: 1000,                 // should be from front end form request information
                 },
-                customer: {
-                    merchantCustomerId: "1234",
-                    billingAddress: {
-                        countryCode: "NZ",
-                    },
-                },
+
             },
     
             hostedCheckoutSpecificInput: {
-                variant: "100",
-                locale: "en_NZ",
+                //variant: "100",
+                //locale: "en_NZ",
                 "paymentProductFilters": {
                     "restrictTo": {
-                        "products": [
-                              302,
-                              430,
-                              1
-                         ]
+                        "products": [2,5408,130,132,320,809,125,117,3,1,5404] //1 visa, 2 ae 3 master 320 G Pay 5404 WeChat Pay  
                     }
                 }
             },
@@ -86,8 +77,14 @@ const checkout = async function(c: Context) {
     //return c.json({ redirectUrl: "https://www.google.com" }); // test ok
 
     console.log("redirectUrl ------------------------------------------");
-    console.log(sdkResponse.body?.redirectUrl);
-    return c.json({ redirectUrl: sdkResponse.body?.redirectUrl });
+    if ('redirectUrl' in sdkResponse) {
+          console.log(sdkResponse.redirectUrl);
+          return c.json({ redirectUrl: sdkResponse.redirectUrl });
+        
+    } else{
+        return c.json({ redirectUrl: "https://www.google.com" });
+    }
+    
     
         
 };
