@@ -28,6 +28,9 @@ const checkout = async function(c: Context) {
         secretApiKey: c.env.WL_SECRET
     });
 
+    console.log("directSdk ------------------------------------------");
+    console.log(directSdk);
+
     // use worldline sdk
     const sdkResponse = await directSdk.hostedCheckout.createHostedCheckout(
         merchantId,
@@ -54,7 +57,9 @@ const checkout = async function(c: Context) {
         {}
     );
 
+    console.log("sdkResponse ------------------------------------------");
     console.log(sdkResponse);
+    
     
     //const partialRedirectUrl = sdkResponse.response.partialRedirectUrl;
     // error TS2339: Property 'partialRedirectUrl' does not exist on type 'SdkResponse<CreateHostedCheckoutResponse, ErrorResponse>'.
