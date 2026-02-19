@@ -85,8 +85,8 @@ const checkout = async function(c: Context) {
     //return c.json({ redirectUrl: "https://www.google.com" }); // test ok
 
     console.log("redirectUrl ------------------------------------------");
-    console.log(sdkResponse.redirectUrl);
-    return c.json({ redirectUrl: sdkResponse.redirectUrl });
+    console.log(sdkResponse?.redirectUrl);
+    return c.json({ redirectUrl: sdkResponse?.redirectUrl });
     
         
 };
