@@ -37,20 +37,29 @@ const checkout = async function(c: Context) {
         {
             order: {
                 amountOfMoney: {
-                    currencyCode: "USD",
+                    currencyCode: "NZD",
                     amount: 2345,                 // should be from front end form request information
                 },
                 customer: {
                     merchantCustomerId: "1234",
                     billingAddress: {
-                        countryCode: "US",
+                        countryCode: "NZ",
                     },
                 },
             },
     
             hostedCheckoutSpecificInput: {
-                variant: "testVariant",
-                locale: "en_GB",
+                variant: "100",
+                locale: "en_NZ",
+                "paymentProductFilters": {
+                    "restrictTo": {
+                        "products": [
+                              "302",
+                              "430",
+                              "1"
+                         ]
+                    }
+                }
             },
         },
     
