@@ -7,7 +7,7 @@ const merchantId = 'JMI';
 const wlApiKey = import.meta.env.WL_API_KEY;         // get it from .env
 //const wlSecret = import.meta.env.WL_SECRET;
 
-const checkout = async function(c) {
+const checkout = async function(c: Context) {
 
     // get order information from front end page Button OnClick event handler function
 
