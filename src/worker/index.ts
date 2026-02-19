@@ -37,8 +37,8 @@ const checkout = async function(c: Context) {
         {
             order: {
                 amountOfMoney: {
-                    currencyCode: "NZD",
-                    amount: 2345,                 // should be from front end form request information
+                    currencyCode: "EUR",
+                    amount: 100,                 // should be from front end form request information
                 },
                 customer: {
                     merchantCustomerId: "1234",
@@ -70,19 +70,24 @@ const checkout = async function(c: Context) {
     console.log(sdkResponse);
     
     
-    //const partialRedirectUrl = sdkResponse.response.partialRedirectUrl;
+    //const partialRedirectUrl = sdkResponse.partialRedirectUrl;
     // error TS2339: Property 'partialRedirectUrl' does not exist on type 'SdkResponse<CreateHostedCheckoutResponse, ErrorResponse>'.
     
     //const baseUrl = "https://payment.";
     //const reUrl = baseUrl + partialRedirectUrl;
-    console.log("reUrl --------------------------------");
+    //console.log("reUrl --------------------------------");
     //console.log(reUrl);
     
     // return reUrl to front end code by the mean of response
     // then front end code parse the response, get the reUrl, then call window.location.href = "https://www.example.com/new-page";
     
     //return c.json({ redirectUrl: reUrl });
-    return c.json({ redirectUrl: "https://www.google.com" });
+    //return c.json({ redirectUrl: "https://www.google.com" }); // test ok
+
+    console.log("redirectUrl ------------------------------------------");
+    console.log(sdkResponse.redirectUrl);
+    return c.json({ redirectUrl: sdkResponse.redirectUrl });
+    
         
 };
 
